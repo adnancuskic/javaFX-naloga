@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="500.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <TabPane fx:id="barVrstica" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="barPodatkiOVozilu" text="Podatki o vozilu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="526.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="25.0" prefHeight="150.0" prefWidth="60.0" vgap="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="300.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="300.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Znamka">
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="znamka" />
+                              <Label layoutX="10.0" layoutY="38.0" text="Oznaka" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="oznaka" layoutX="10.0" layoutY="54.0" prefHeight="25.0" prefWidth="60.0" GridPane.columnIndex="1" />
+                              <VBox prefHeight="200.0" prefWidth="205.0" spacing="5.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Gorivo">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="gorivoBencin" mnemonicParsing="false" text="Bencin">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="gorivo" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="gorivoDizel" mnemonicParsing="false" text="Dizel" toggleGroup="$gorivo" />
+                                    <RadioButton fx:id="gorivoElektrika" mnemonicParsing="false" text="Elektrika" toggleGroup="$gorivo" />
+                                    <RadioButton fx:id="gorivoDrugoOznaka" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" text="Drugo" toggleGroup="$gorivo" />
+                                    <TextField fx:id="gorivoDrugoText" disable="true" promptText="Drugo ..." />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="63.0" prefHeight="150.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <Label text="Barva">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin></Label>
+                                    <TextField fx:id="barva" prefHeight="25.0" prefWidth="63.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin></TextField>
+                                    <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="10.0" layoutY="70.0" text="Število sedežev">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="22.0" />
+                                       </VBox.margin></Label>
+                                    <TextField fx:id="steviloSedezev" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="63.0" promptText="Vpišite samo številke" />
+                                 </children>
+                              </VBox>
+                              <Label text="Prostornina ( ccm )" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="prostornina" promptText="Vpišite samo številke" GridPane.rowIndex="2" />
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label text="Vrsta vozila" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="vrstaBus" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="vrsta" />
+                                       </toggleGroup>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                                             <image>
+                                                <Image url="@bus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </RadioButton>
+                                    <RadioButton fx:id="vrstaTruck" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="71.0" layoutY="19.0" mnemonicParsing="false" toggleGroup="$vrsta">
+
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                                             <image>
+                                                <Image url="@truck.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </RadioButton>
+                                    <RadioButton fx:id="vrstaTractor" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="243.0" layoutY="19.0" mnemonicParsing="false" toggleGroup="$vrsta">
+
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                                             <image>
+                                                <Image url="@tractor.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </RadioButton>
+                                    <RadioButton fx:id="vrstaBike" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="278.0" layoutY="19.0" mnemonicParsing="false" toggleGroup="$vrsta">
+
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                                             <image>
+                                                <Image url="@bike.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </RadioButton>
+                                    <RadioButton fx:id="vrstaCar" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="314.0" layoutY="19.0" mnemonicParsing="false" toggleGroup="$vrsta">
+
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                                             <image>
+                                                <Image url="@car.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <Label layoutX="10.0" layoutY="190.0" text="Moč ( kW )" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="moc" layoutX="10.0" layoutY="213.0" promptText="Vpišite samo številke" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="barPodatkiOZavarovancu" text="Podatki o zavarovancu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane hgap="25.0" layoutX="61.0" layoutY="-21.0" prefHeight="150.0" prefWidth="60.0" vgap="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="-21.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Ime">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="ime" />
+                              <Label text="Priimek" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="priimek" GridPane.columnIndex="1" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Ulica">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="ulica" />
+                                    <Label layoutX="10.0" layoutY="10.0" text="Hišna številka">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="hisnaStevilka" layoutX="10.0" layoutY="35.0" maxWidth="50.0" prefHeight="25.0" prefWidth="89.0" promptText="Št." />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="117.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Poštna številka">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="postnaStevilka" promptText="Vpišite samo številke" />
+                                    <Label layoutX="10.0" layoutY="10.0" text="Kraj">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="kraj" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="89.0" />
+                                 </children>
+                              </VBox>
+                              <DatePicker fx:id="datumRojstva" prefHeight="25.0" prefWidth="234.0" GridPane.rowIndex="2" />
+                              <Label layoutX="252.0" layoutY="26.0" text="Datum rojstva" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label text="Izkušnje">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="mladVoznik" mnemonicParsing="false" text="Mlad voznik">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="izkusnje" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="izkusenVoznik" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Izkušen voznik" toggleGroup="$izkusnje">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="barPodatkiOZavarovanju" text="Podatki o zavarovanju">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="66.0" layoutY="49.0" prefHeight="150.0" prefWidth="60.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Osnovno zavarovanje">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="AO" mnemonicParsing="false" text="AO">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="osnovnoZavarovanje" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="AOplus" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" text="AO +" toggleGroup="$osnovnoZavarovanje">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label text="Kasko">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="polno" mnemonicParsing="false" text="Polno">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="kasko" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="odbitnaFransiza" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" text="Odbitna franšiza" toggleGroup="$kasko">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="brez" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" text="Brez" toggleGroup="$kasko">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="6.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Zavarovanje za:">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="zavarovanjeStekla" mnemonicParsing="false" text="stekla" />
+                                    <CheckBox fx:id="zavarovanjeParkirisce" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="parkirišče" />
+                                    <CheckBox fx:id="zavarovanjePotnike" layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="potnike" />
+                                    <CheckBox fx:id="zavarovanjeTretjeOsebe" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="tretje osebe" />
+                                    <CheckBox fx:id="zavarovanjeGume" layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="gume" />
+                                    <CheckBox fx:id="zavarovanjeKrajo" layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="krajo" />
+                                    <CheckBox fx:id="zavarovanjeToco" layoutX="10.0" layoutY="95.0" mnemonicParsing="false" text="točo" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+                </content>
+            </Tab>
+            <Tab fx:id="barPodatkiORegistraciji" text="Podatki o registraciji">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="73.0" layoutY="53.0" prefHeight="150.0" prefWidth="60.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="15.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Datum prve registracije">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <DatePicker fx:id="datumPrveRegistracije" />
+                              <Label layoutX="10.0" layoutY="28.0" text="Registerska označba" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="registerskaOznacba" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="134.0" text="Kraj prve registracije" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="45.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="krajPrveRegistracije" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <top>
+          <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                  <Menu text="_Datoteka">
+                      <items>
+                          <MenuItem onAction="#ustvariNovo" text="_Ustvari novo aplikacijo za zavarovanje">
+                              <accelerator>
+                                  <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                              </accelerator>
+                          </MenuItem>
+                          <MenuItem onAction="#izhodCB" text="_Izhod">
+                              <accelerator>
+                                  <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                              </accelerator>
+                          </MenuItem>
+                      </items>
+                  </Menu>
+                  <Menu text="_Obstoječe police">
+                      <items>
+                          <MenuItem onAction="#odpriCB" text="_Odpri obstoječo" />
+                      </items>
+                  </Menu>
+                  <Menu text="_Info">
+                      <items>
+                  <MenuItem onAction="#avtorCB" text="_Vse datoteke" />
+                  <MenuItem onAction="#navodilaCB" text="_Navodila" />
+                      </items>
+                  </Menu>
+              </menus>
+          </MenuBar>
+   </top>
+   <left>
+      <VBox alignment="CENTER" prefHeight="90.0" prefWidth="111.0" style="-fx-background-color: #dddddd;" BorderPane.alignment="CENTER">
+         <children>
+            <Button minHeight="50.0" mnemonicParsing="false" onAction="#ustvariNovo" prefHeight="150.0" prefWidth="100.0" text="Ustvari novo" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+
+            </Button>
+            <Button layoutX="16.0" layoutY="40.0" minHeight="50.0" mnemonicParsing="false" onAction="#odpriCB" prefHeight="150.0" prefWidth="100.0" text="Odpri obstoječo" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@open.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="pocisti" disable="true" layoutX="16.0" layoutY="100.0" minHeight="31.0" mnemonicParsing="false" onAction="#pocistiVse" prefHeight="150.0" prefWidth="100.0" text="Počisti vse" textOverrun="CLIP" wrapText="true">
+
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="nadaljujGumb" disable="true" layoutX="16.0" layoutY="160.0" minHeight="31.0" mnemonicParsing="false" onMouseClicked="#nadaljujNaprej" prefHeight="150.0" prefWidth="100.0" text="Preveri" textOverrun="CLIP" wrapText="true">
+
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@showall.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="shranjevanjePodatkov" disable="true" layoutX="16.0" layoutY="235.0" minHeight="31.0" mnemonicParsing="false" onMouseClicked="#shraniVsePodatke" prefHeight="150.0" prefWidth="100.0" style="-fx-background-color: green;" text="Shrani !" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="265.0" prefHeight="150.0" prefWidth="128.0" style="-fx-font-weight: bold;" text="Trenutno odprt" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="textTrenutnoOdprt" alignment="CENTER" layoutX="10.0" layoutY="309.0" prefHeight="150.0" prefWidth="111.0" text="----" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Label alignment="CENTER" prefHeight="150.0" prefWidth="128.0" style="-fx-font-weight: bold;" text="Vsi zavarovanci" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="textSteviloZavarovancev" alignment="CENTER" layoutX="10.0" layoutY="255.0" prefHeight="150.0" prefWidth="128.0" text="0" textAlignment="CENTER" />
+         </children>
+         <effect>
+            <Blend opacity="0.85" />
+         </effect>
+      </VBox>
+   </left>
+   <bottom>
+      <Label fx:id="obvestilo" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #dddddd;" text="Obvestila" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets left="22.0" right="22.0" />
+         </padding></Label>
+   </bottom>
+</BorderPane>
